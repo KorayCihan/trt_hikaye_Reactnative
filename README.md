@@ -1,56 +1,50 @@
-# Welcome to your Expo app 👋
+# TRT Çocuk Hikâye Motoru
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Expo SDK 54, Expo Router ve TypeScript ile hazırlanan; Expo Go uyumlu, veri tabanlı ve dallanan çocuk hikâyeleri uygulaması. Tam ekran sahneler, Türkçe seslendirme, çoklu final, favoriler ve cihazda ilerleme kaydı içerir.
 
-## Get started
+## Çalıştırma
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Node.js 20.19 veya daha yeni bir sürüm kullanın.
 
 ```bash
-npm run reset-project
+npm install
+npx expo start --clear
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Telefon ve bilgisayar aynı ağdayken QR kodunu Expo Go ile okutun. Bağlantı kurulmazsa `npx expo start --tunnel` kullanın.
 
-### Other setup steps
+## Yeni hikâye ekleme
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+1. `src/stories/<hikaye-kimliği>/` klasörünü oluşturun.
+2. Bu klasöre `story.json`, `images.ts` ve `assets/` ekleyin.
+3. `story.json` içinde `startNodeId` ve `nodes` alanlarını tanımlayın. Her seçeneğin `nextNodeId` değeri mevcut bir düğüme bağlanmalıdır.
+4. Her düğüm için `backgroundImage` ve mümkünse `imagePrompt` yazın. Görseller 9:16, yazısız ve alt kısmında metin için sakin alan bırakacak biçimde hazırlanmalıdır.
+5. Görselleri `assets/` içine koyun ve dinamik `require()` kullanmadan `images.ts` içinde sabit olarak eşleyin:
 
-## Learn more
+```ts
+export const storyImages = {
+  'cover.png': require('./assets/cover.png'),
+  'intro.png': require('./assets/intro.png'),
+};
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+6. Hikâyeyi `src/stories/index.ts` içindeki `stories` dizisine kaydedin. Ekran kodlarında değişiklik yapmanız gerekmez.
+7. Geliştirme sürümünde ana sayfanın altındaki **Hikâye Kontrolü** ekranından bağlantıları, finalleri, ulaşılamayan düğümleri ve görselleri denetleyin.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## TXT dosyasını taslak hikâyeye dönüştürme
 
-## Join the community
+```bash
+npm run convert-story -- "./incoming/hikaye.txt"
+```
 
-Join our community of developers creating universal apps.
+Araç `1. Paragraf`, `A)`, `7. Paragrafa gider`, `HİKAYE 1` ve `SON 1` kalıplarını tanır. Çıktı ilgili hikâyenin klasörüne `story.generated.json` adıyla yazılır. Belirsiz hedefler başlangıç düğümüne güvenli biçimde bağlanır ve konsolda uyarı gösterilir.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Kontroller
+
+```bash
+npx tsc --noEmit
+npx expo-doctor
+npx expo export --platform android
+```
+
+İlerleme, seçim geçmişi, açılan sonlar, favoriler ve ses tercihi AsyncStorage ile cihazda saklanır.

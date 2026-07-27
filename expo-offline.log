@@ -1,0 +1,21 @@
+
+> myapp@1.0.0 web:offline
+> expo start --web --offline --port 8083
+
+Networking has been disabled
+Starting project at C:\Users\kc\Desktop\trt_hikaye_Reactnative\myApp
+Using src/app as the root directory for Expo Router.
+React Compiler enabled
+Starting Metro Bundler
+Waiting on http://localhost:8083
+Logs for your project will appear below.
+Web node_modules\expo-router\entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web node_modules\expo-router\entry.js ░░░░░░░░░░░░░░░░  1.0% (1/1)
+λ node_modules\expo-router\node\render.js ▓▓▓░░░░░░░░░░░░░ 22.9% (156/326)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓░░░░░░░░░░░ 35.5% (239/401)
+λ node_modules\expo-router\node\render.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 72.8% ( 593/1053)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 62.2% ( 868/1101)
+λ node_modules\expo-router\node\render.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 96.1% (1204/1228)
+λ Bundled 11726ms node_modules\expo-router\node\render.js (1258 modules)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 99.9% (1243/1243)
+Web Bundled 14600ms node_modules\expo-router\entry.js (1243 modules)

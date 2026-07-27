@@ -1,0 +1,27 @@
+import type { AudioSource } from 'expo-audio';
+
+export const akilliTavsanMomoAudio: Record<string, AudioSource> = {
+  'ortak-1': require('./audio/ortak-1.mp3'),
+  'ortak-2': require('./audio/ortak-2.mp3'),
+  'ortak-3': require('./audio/ortak-3.mp3'),
+  'ortak-4': require('./audio/ortak-4.mp3'),
+  'ortak-5': require('./audio/ortak-5.mp3'),
+  'roni-6': require('./audio/roni-6.mp3'),
+  'roni-7': require('./audio/roni-7.mp3'),
+  'roni-8': require('./audio/roni-8.mp3'),
+  'roni-9': require('./audio/roni-9.mp3'),
+  'roni-10': require('./audio/roni-10.mp3'),
+  'roni-son': require('./audio/roni-son.mp3'),
+  'kasa-6': require('./audio/kasa-6.mp3'),
+  'kasa-7': require('./audio/kasa-7.mp3'),
+  'kasa-8': require('./audio/kasa-8.mp3'),
+  'kasa-9': require('./audio/kasa-9.mp3'),
+  'kasa-10': require('./audio/kasa-10.mp3'),
+  'kasa-son': require('./audio/kasa-son.mp3'),
+  'yildiz-6': require('./audio/yildiz-6.mp3'),
+  'yildiz-7': require('./audio/yildiz-7.mp3'),
+  'yildiz-8': require('./audio/yildiz-8.mp3'),
+  'yildiz-9': require('./audio/yildiz-9.mp3'),
+  'yildiz-10': require('./audio/yildiz-10.mp3'),
+  'yildiz-son': require('./audio/yildiz-son.mp3'),
+};

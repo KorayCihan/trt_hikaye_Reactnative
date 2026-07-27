@@ -1,0 +1,3 @@
+Skipping dependency validation in offline mode
+"shadow*" style props are deprecated. Use "boxShadow".
+"textShadow*" style props are deprecated. Use "textShadow".
