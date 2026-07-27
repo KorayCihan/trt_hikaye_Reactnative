@@ -1,50 +1,186 @@
-# TRT Çocuk Hikâye Motoru
+<div align="center">
 
-Expo SDK 54, Expo Router ve TypeScript ile hazırlanan; Expo Go uyumlu, veri tabanlı ve dallanan çocuk hikâyeleri uygulaması. Tam ekran sahneler, Türkçe seslendirme, çoklu final, favoriler ve cihazda ilerleme kaydı içerir.
+# 📚 TRT Etkileşimli Hikâye
 
-## Çalıştırma
+### 🎮 Çocukların seçimleriyle şekillenen etkileşimli hikâye deneyimi
 
-Node.js 20.19 veya daha yeni bir sürüm kullanın.
+React Native, Expo ve TypeScript kullanılarak geliştirilmiş modern bir mobil uygulama.
+
+<img src="assets/images/trt-cocuk-logo.png" width="180"/>
+
+<br>
+
+![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+
+</div>
+
+---
+
+# 📖 Proje Hakkında
+
+TRT Etkileşimli Hikâye, çocukların yalnızca hikâye dinlediği değil, hikâyenin bir parçası olduğu interaktif bir mobil uygulamadır.
+
+Kullanıcılar hikâye boyunca farklı seçimler yaparak olayların akışını değiştirir ve her seçim onları farklı bir sona ulaştırır.
+
+Uygulama;
+
+- 📖 Etkileşimli hikâyeler
+- 🎙️ Sesli anlatım
+- 🎨 Çocuk dostu arayüz
+- 🧩 Karar mekanizması
+- ⭐ Çoklu hikâye sonları
+
+sunarak eğlenceli ve öğretici bir deneyim hedeflemektedir.
+
+---
+
+# ✨ Özellikler
+
+✅ Etkileşimli hikâye akışı
+
+✅ Karar verme sistemi
+
+✅ Farklı sonlara ulaşabilme
+
+✅ Hikâyeyi tekrar oynayabilme
+
+✅ Hikâye ilerleme yönetimi
+
+✅ Modern React Native mimarisi
+
+✅ Responsive mobil tasarım
+
+✅ Modüler proje yapısı
+
+---
+
+# 🖼️ Uygulama Görselleri
+
+> Ekran görüntülerini **docs/screenshots/** klasörüne ekledikten sonra otomatik görünecektir.
+
+| Ana Sayfa | Hikâye | Sonuç |
+|-----------|---------|--------|
+| <img src="docs/screenshots/home.png" width="220"/> | <img src="docs/screenshots/story.png" width="220"/> | <img src="docs/screenshots/result.png" width="220"/> |
+
+---
+
+# 🏗️ Proje Mimarisi
+
+```
+src
+│
+├── app
+│   ├── index
+│   ├── story
+│   ├── story-check
+│   ├── result
+│   └── my-story
+│
+├── components
+│
+├── context
+│
+├── engine
+│
+├── hooks
+│
+├── stories
+│
+├── theme
+│
+├── types
+│
+└── config
+```
+
+---
+
+# 🛠️ Kullanılan Teknolojiler
+
+| Teknoloji | Amaç |
+|------------|------|
+| React Native | Mobil geliştirme |
+| Expo | Geliştirme ortamı |
+| TypeScript | Güvenli kod yapısı |
+| Expo Router | Sayfa yönetimi |
+| React Context | State Management |
+| Expo Audio | Sesli hikâye sistemi |
+
+---
+
+# 🚀 Kurulum
+
+Repository'i klonlayın
+
+```bash
+git clone https://github.com/KorayCihan/trt_hikaye_Reactnative.git
+```
+
+Proje dizinine girin
+
+```bash
+cd trt_hikaye_Reactnative
+```
+
+Bağımlılıkları yükleyin
 
 ```bash
 npm install
-npx expo start --clear
 ```
 
-Telefon ve bilgisayar aynı ağdayken QR kodunu Expo Go ile okutun. Bağlantı kurulmazsa `npx expo start --tunnel` kullanın.
-
-## Yeni hikâye ekleme
-
-1. `src/stories/<hikaye-kimliği>/` klasörünü oluşturun.
-2. Bu klasöre `story.json`, `images.ts` ve `assets/` ekleyin.
-3. `story.json` içinde `startNodeId` ve `nodes` alanlarını tanımlayın. Her seçeneğin `nextNodeId` değeri mevcut bir düğüme bağlanmalıdır.
-4. Her düğüm için `backgroundImage` ve mümkünse `imagePrompt` yazın. Görseller 9:16, yazısız ve alt kısmında metin için sakin alan bırakacak biçimde hazırlanmalıdır.
-5. Görselleri `assets/` içine koyun ve dinamik `require()` kullanmadan `images.ts` içinde sabit olarak eşleyin:
-
-```ts
-export const storyImages = {
-  'cover.png': require('./assets/cover.png'),
-  'intro.png': require('./assets/intro.png'),
-};
-```
-
-6. Hikâyeyi `src/stories/index.ts` içindeki `stories` dizisine kaydedin. Ekran kodlarında değişiklik yapmanız gerekmez.
-7. Geliştirme sürümünde ana sayfanın altındaki **Hikâye Kontrolü** ekranından bağlantıları, finalleri, ulaşılamayan düğümleri ve görselleri denetleyin.
-
-## TXT dosyasını taslak hikâyeye dönüştürme
+Projeyi başlatın
 
 ```bash
-npm run convert-story -- "./incoming/hikaye.txt"
+npx expo start
 ```
 
-Araç `1. Paragraf`, `A)`, `7. Paragrafa gider`, `HİKAYE 1` ve `SON 1` kalıplarını tanır. Çıktı ilgili hikâyenin klasörüne `story.generated.json` adıyla yazılır. Belirsiz hedefler başlangıç düğümüne güvenli biçimde bağlanır ve konsolda uyarı gösterilir.
+---
 
-## Kontroller
+# 📂 Klasör Yapısı
 
-```bash
-npx tsc --noEmit
-npx expo-doctor
-npx expo export --platform android
+```
+assets/
+docs/
+src/
+tools/
+
+app.json
+package.json
+tsconfig.json
 ```
 
-İlerleme, seçim geçmişi, açılan sonlar, favoriler ve ses tercihi AsyncStorage ile cihazda saklanır.
+---
+
+# 🎯 Temel Amaç
+
+Bu proje;
+
+- Çocukların aktif katılım sağlayabileceği
+- Eğlenirken öğrenebileceği
+- Hikâyelerin seçimlere göre değiştiği
+- Ses ve görsellerle desteklenen
+
+modern bir mobil hikâye deneyimi sunmak amacıyla geliştirilmiştir.
+
+---
+
+# 👨‍💻 Geliştirici
+
+**Koray Cihan**
+
+Computer Engineering Student
+
+GitHub
+
+https://github.com/KorayCihan
+
+---
+
+<div align="center">
+
+
+</div>
